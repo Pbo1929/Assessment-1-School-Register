@@ -16,6 +16,8 @@ namespace Assessment_1___School_Register
         private int AbsentCount = 0;
         private int TotalMinutesLate = 0;
         private string registered = "";
+        private DateTime Date;
+        private int MinutesLate;
 
 
         public Student(string name, DateTime dateOfBirth, string gender)
@@ -25,30 +27,35 @@ namespace Assessment_1___School_Register
             Gender = gender;
         }
 
-        public void AddAttendance(DateTime date, DateTime dayOfTheWeek, string registered, int LateCount)
+        public void AddAttendance(DateTime date, string registered)
         {
-            Attendances[AttendanceCount] = new Attendance(date, dayOfTheWeek, registered, LateCount);
+
+            Attendances[AttendanceCount] = new Attendance(date, registered);
             AttendanceCount++;
             if (registered == "present")
             {
-                Attendances[AttendanceCount] = new Attendance(date, dayOfTheWeek, registered, LateCount);
+                Attendances[AttendanceCount] = new Attendance(date, registered);
                 PresentCount++;
                 AttendanceCount++;
+                Date = date;
             }
             else if (registered == "absent")
             {
 
-                Attendances[AttendanceCount] = new Attendance(date, dayOfTheWeek, registered, LateCount);
+                Attendances[AttendanceCount] = new Attendance(date, registered);
                 AbsentCount++;
                 AttendanceCount++;
+                Date = date;
             }
             else if (registered == "late")
             {
 
-                Attendances[AttendanceCount] = new Attendance(date, dayOfTheWeek, registered, LateCount);
+                Attendances[AttendanceCount] = new Attendance(date, registered);
                 TotalMinutesLate = TotalMinutesLate + Attendances[AttendanceCount].GetMinutesLate();
                 LateCount++;
                 AttendanceCount++;
+                Date = date;
+                
             }
 
         }
@@ -78,5 +85,14 @@ namespace Assessment_1___School_Register
             return TotalMinutesLate;
         }
 
+        public string GetName()
+        {
+            return Name;
+        }
+
+        public DateTime GetStatus()
+        {
+            return Date;
+        }
     }
 }

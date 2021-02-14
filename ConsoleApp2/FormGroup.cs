@@ -8,6 +8,7 @@ namespace Assessment_1___School_Register
     {
         private string GroupName;
         private string FormTeacher;
+        private DateTime Date = DateTime.Now;
         private Student[] Students = new Student[22];
         private int StudentCount = 0;
 
@@ -33,15 +34,36 @@ namespace Assessment_1___School_Register
             return Students.Length;
         }
 
-        public bool TakeRegister(Student StudentToRegister)
+        public void TakeRegister(DateTime Today)
         {
-            int StudentCount = GetStudentCount();
-            if (StudentCount < Students.Length)
+            string x;
+            for (int i = 0; i < StudentCount; i++)
             {
-                Students[StudentCount] = StudentToRegister;
-                return true;
+
+                Console.WriteLine("Is " + Students[i].GetName() + " here today.");
+                x = Console.ReadLine();
+                if (x == "Present")
+                {
+                    Students[i].AddAttendance(Today, "present");
+                }
+                else if ( x == "Absent")
+                {
+                    Students[i].AddAttendance(Today, "absent");
+                }
+                else if ( x == "Late")
+                {
+                    Students[i].AddAttendance(Today, "late");
+                }
             }
-            return false;
+        }
+
+        public void PrintRegister(DateTime Today)
+        {
+            for (int i = 0; i < StudentCount; i++)
+            {
+                Console.WriteLine(Students[i].GetName() + " was " + Students[i].GetStatus());
+                Console.WriteLine(Students[i].GetName() + " is " + Students[i].GetTotalMinutesLate() + " minutes late ");
+            }
         }
 
         public string GetGroupName()

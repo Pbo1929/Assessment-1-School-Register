@@ -30,10 +30,11 @@ namespace Assessment_1___School_Register
                 Console.WriteLine("Type 1 to take register.");
                 Console.WriteLine("Type 2 to add new student.");
                 Console.WriteLine("Type 3 to get register.");
-                Console.WriteLine("Type 4 to end.");
+                Console.WriteLine("Type 4 to get number of students.");
+                Console.WriteLine("Type 5 to get students' number of late, absence, and present.");
+                Console.WriteLine("Type 6 to exit.");
                 input = Console.ReadLine();
                 input2 = Convert.ToInt32(input);
-                Console.WriteLine(input2);
 
                 if (input2 == 1)
                 {
@@ -51,6 +52,14 @@ namespace Assessment_1___School_Register
                 }
 
                 else if(input2 == 4)
+                {
+                    GetStudentCount(Y12FB);
+                }
+                else if (input2 == 5)
+                {
+                    GetStudentStatus(Y12FB);
+                }
+                else if (input2 == 6)
                 {
                     break;
                 }
@@ -91,6 +100,16 @@ namespace Assessment_1___School_Register
         {
             Y12FB.PrintRegister(DateTime.Today);
             
+        }
+
+        static public void GetStudentCount(FormGroup Y12FB)
+        {
+            Y12FB.GetStudentCount();
+        }
+
+        static public void GetStudentStatus(FormGroup Y12FB)
+        {
+            Y12FB.GetStudentStatus();
         }
 
     }

@@ -46,11 +46,11 @@ namespace Assessment_1___School_Register
                 {
                     Students[i].AddAttendance(Today, "present");
                 }
-                else if ( x == "Absent")
+                else if (x == "Absent")
                 {
                     Students[i].AddAttendance(Today, "absent");
                 }
-                else if ( x == "Late")
+                else if (x == "Late")
                 {
                     Students[i].AddAttendance(Today, "late");
                 }
@@ -63,6 +63,17 @@ namespace Assessment_1___School_Register
             {
                 Console.WriteLine(Students[i].GetName() + " was " + Students[i].GetStatus());
                 Console.WriteLine(Students[i].GetName() + " is " + Students[i].GetTotalMinutesLate() + " minutes late ");
+            }
+        }
+
+        public void GetStudentStatus()
+        {
+            for (int i = 0; i < StudentCount; i++)
+            {
+                Console.WriteLine(Students[i].GetName() + "'s" + " Status");
+                Console.WriteLine("Present: " + Students[i].GetPresentCount());
+                Console.WriteLine("Absent: " + Students[i].GetAbsentCount());
+                Console.WriteLine("Late: " + Students[i].GetLateCount());
             }
         }
 

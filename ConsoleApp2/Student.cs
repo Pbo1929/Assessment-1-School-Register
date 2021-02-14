@@ -15,7 +15,7 @@ namespace Assessment_1___School_Register
         private int LateCount = 0;
         private int AbsentCount = 0;
         private int TotalMinutesLate = 0;
-        private string registered = "";
+        private string registered;
         private DateTime Date;
         private int MinutesLate;
 
@@ -30,10 +30,13 @@ namespace Assessment_1___School_Register
         public void AddAttendance(DateTime date, string registered)
         {
 
+
             Attendances[AttendanceCount] = new Attendance(date, registered);
             AttendanceCount++;
             if (registered == "present")
             {
+                this.registered = registered;
+                this.Date = date;
                 Attendances[AttendanceCount] = new Attendance(date, registered);
                 PresentCount++;
                 AttendanceCount++;
@@ -42,6 +45,8 @@ namespace Assessment_1___School_Register
             else if (registered == "absent")
             {
 
+                this.registered = registered;
+                this.Date = date;
                 Attendances[AttendanceCount] = new Attendance(date, registered);
                 AbsentCount++;
                 AttendanceCount++;
@@ -50,6 +55,8 @@ namespace Assessment_1___School_Register
             else if (registered == "late")
             {
 
+                this.registered = registered;
+                this.Date = date;
                 Attendances[AttendanceCount] = new Attendance(date, registered);
                 TotalMinutesLate = TotalMinutesLate + Attendances[AttendanceCount].GetMinutesLate();
                 LateCount++;
@@ -90,9 +97,19 @@ namespace Assessment_1___School_Register
             return Name;
         }
 
-        public DateTime GetStatus()
+        public string GetStatus()
+        {
+            return registered;
+        }
+
+        public DateTime GetDate()
         {
             return Date;
+        }
+
+        public string GetRegistered()
+        {
+            return registered;
         }
     }
 }

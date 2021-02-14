@@ -61,8 +61,11 @@ namespace Assessment_1___School_Register
         {
             for (int i = 0; i < StudentCount; i++)
             {
-                Console.WriteLine(Students[i].GetName() + " was " + Students[i].GetStatus());
-                Console.WriteLine(Students[i].GetName() + " is " + Students[i].GetTotalMinutesLate() + " minutes late ");
+                Console.WriteLine("");
+                Console.WriteLine(Students[i].GetName() + " was " + Students[i].GetStatus() + " in " + Students[i].GetDate());
+                Console.WriteLine("");
+                Console.WriteLine(Students[i].GetName() + " was " + Students[i].GetTotalMinutesLate() + " minutes late ");
+                Console.WriteLine("");
             }
         }
 
@@ -70,10 +73,12 @@ namespace Assessment_1___School_Register
         {
             for (int i = 0; i < StudentCount; i++)
             {
+                Console.WriteLine("");
                 Console.WriteLine(Students[i].GetName() + "'s" + " Status");
                 Console.WriteLine("Present: " + Students[i].GetPresentCount());
                 Console.WriteLine("Absent: " + Students[i].GetAbsentCount());
                 Console.WriteLine("Late: " + Students[i].GetLateCount());
+                Console.WriteLine("");
             }
         }
 

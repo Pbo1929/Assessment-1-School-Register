@@ -61,6 +61,7 @@ namespace Assessment_1___School_Register
                 }
                 else if (input2 == 6)
                 {
+                    Console.WriteLine("GOODBYE...");
                     break;
                 }
                 else
@@ -83,16 +84,17 @@ namespace Assessment_1___School_Register
             string StudentDoB;
             string StudentGender;
             DateTime StudentDoB2;
+            Console.WriteLine("");
             Console.WriteLine("Enter Student Name:");
             StudentName = Console.ReadLine();
-
+            Console.WriteLine("");
             Console.WriteLine("Enter Student Date of Birth:");
             StudentDoB = Console.ReadLine();
             StudentDoB2 = Convert.ToDateTime(StudentDoB);
-
+            Console.WriteLine("");
             Console.WriteLine("Enter Student Gender:");
             StudentGender = Console.ReadLine();
-
+            Console.WriteLine("");
             Y12FB.AddStudent(StudentName, StudentDoB2, StudentGender);
         }
 
@@ -104,7 +106,10 @@ namespace Assessment_1___School_Register
 
         static public void GetStudentCount(FormGroup Y12FB)
         {
-            Y12FB.GetStudentCount();
+            Console.WriteLine("");
+            Console.WriteLine("Number of Students:");
+            Console.WriteLine(Y12FB.GetStudentCount());
+            Console.WriteLine("");
         }
 
         static public void GetStudentStatus(FormGroup Y12FB)
